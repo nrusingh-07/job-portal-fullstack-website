@@ -38,7 +38,7 @@ const Register = () => {
             // posting
             try {
                 const response = await axios.post(
-                    "https://full-stack-job-portal-server.vercel.app/api/v1/auth/register",
+                    `${import.meta.env.VITE_API_URL}/api/v1/auth/register`,
                     user
                 );
 
