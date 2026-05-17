@@ -7,9 +7,15 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Middlewares
 app.use(express.json());
+const allowedOrigins = [
+    "https://mern-job-portal-seven.vercel.app",
+    "http://localhost:5173",
+    process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(
     cors({
-        origin: ["https://mern-job-portal-seven.vercel.app","http://localhost:5173"],
+        origin: allowedOrigins,
         methods: ["GET,POST,DELETE,PUT,PATCH"],
         credentials: true,
     })
